@@ -7,13 +7,20 @@ public class WrapperCommonService implements CommonService {
 
     private MyCommonService service;
 
-    public WrapperCommonService(MyCommonService service){
-        this.service = service;
-    }
+    private ArgumentHelper helper;
 
+    //public WrapperCommonService(MyCommonService service){
+    ///    this.service = service;
+    //}
+
+    public WrapperCommonService(MyCommonService service, ArgumentHelper helper){
+        this.service = service;
+        this.helper = helper;
+    }
 
     @Override
     public void printClassLoaders(Class clazz) {
+        helper.help();
         System.out.println("WRAAAAAAP");
         service.printClassLoaders(clazz);
     }
